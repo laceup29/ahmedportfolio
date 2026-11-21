@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "name": "Muhammad Ahmed",
+    "title": "Technology & Automation Expert",
+    "location": "Faisalabad, Pakistan",
+    "lastUpdated": "2026-03-30",
+    "version": "1.0"
+  },
+
+  "personal": {
+    "fullName": "Muhammad Ahmed",
+    "email": "ahmedghouri818@gmail.com",
+    "phone": "+92 313-7817044",
+    "whatsapp": "+923137817044",
+    "location": "Faisalabad, Pakistan",
+    "availableForFreelance": true,
+    "currentCompany": "Edify Software House",
+    "currentRole": "AI Automation Specialist",
+    "since": "2026"
+  },
+
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/muhammad-ahmed-b7b321274/",
+    "github": "https://github.com/ahmedautomation",
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://wa.me/923137817044"
+  },
+
+  "services": [
+    {
+      "id": 1,
+      "title": "AI Automation",
+      "icon": "fa-robot",
+      "description": "WhatsApp Chatbots, Business Automation, Lead Generation & Smart AI Workflows — Streamline your business with cutting-edge AI solutions.",
+      "features": [
+        "WhatsApp Chatbots",
+        "Business Automation",
+        "Lead Generation",
+        "Smart AI Workflows",
+        "n8n Integration"
+      ],
+      "technologies": ["n8n", "OpenAI", "WhatsApp Business API", "Python"],
+      "startingPrice": "Contact for quote"
+    },
+    {
+      "id": 2,
+      "title": "Full Stack Web Development",
+      "icon": "fa-code",
+      "description": "End-to-end web application development using the MERN stack for scalable, robust solutions.",
+      "features": [
+        "Frontend Development",
+        "Backend APIs",
+        "Database Design",
+        "Authentication",
+        "Deployment"
+      ],
+      "technologies": ["React", "Node.js", "Express.js", "MongoDB", "JavaScript"],
+      "startingPrice": "Contact for quote"
+    },
+    {
+      "id": 3,
+      "title": "POS System Development",
+      "icon": "fa-cash-register",
+      "description": "Custom Point-of-Sale systems designed for retail and hospitality with advanced inventory management.",
+      "features": [
+        "Retail POS",
+        "Restaurant POS",
+        "Inventory Management",
+        "Sales Analytics",
+        "Multi-payment Support"
+      ],
+      "technologies": ["React", "Node.js", "MongoDB", "Electron"],
+      "startingPrice": "Contact for quote"
+    },
+    {
+      "id": 4,
+      "title": "Flutter App Development",
+      "icon": "fa-mobile-alt",
+      "description": "Cross-platform mobile applications with beautifully designed, high-resolution custom mobile app UI.",
+      "features": [
+        "iOS & Android Apps",
+        "Beautiful UI/UX",
+        "Cross-platform",
+        "API Integration",
+        "Play Store Deploy"
+      ],
+      "technologies": ["Flutter", "Dart", "Firebase", "REST APIs"],
+      "startingPrice": "Contact for quote"
+    },
+    {
+      "id": 5,
+      "title": "UI/UX Design",
+      "icon": "fa-palette",
+      "description": "User-centered design creating intuitive, visually appealing interfaces and enhanced user experience.",
+      "features": [
+        "Wireframing",
+        "Prototyping",
+        "User Research",
+        "Design Systems",
+        "Responsive Design"
+      ],
+      "technologies": ["Figma", "Adobe XD", "Photoshop"],
+      "startingPrice": "Contact for quote"
+    },
+    {
+      "id": 6,
+      "title": "E-Commerce Solutions",
+      "icon": "fa-shopping-cart",
+      "description": "Complete e-commerce solutions from store setup to payment integration, optimized for growth.",
+      "features": [
+        "Online Store Setup",
+        "Payment Integration",
+        "Product Management",
+        "Order Tracking",
+        "SEO Optimization"
+      ],
+      "technologies": ["React", "Node.js", "Stripe", "MongoDB"],
+      "startingPrice": "Contact for quote"
+    }
+  ],
+
+  "projects": [
+    {
+      "id": 1,
+      "title": "Penta 5 Solutions",
+      "category": "web",
+      "year": "2025",
+      "description": "Professional business website with modern design, responsive layout and service showcase.",
+      "liveUrl": "https://penta5solutions.com",
+      "technologies": ["React", "Node.js"],
+      "features": ["Responsive Design", "Modern UI", "SEO Optimized"]
+    },
+    {
+      "id": 2,
+      "title": "LaceUp",
+      "category": "web",
+      "year": "2025",
+      "description": "Sneaker e-commerce platform with product catalog, shopping cart and secure checkout.",
+      "liveUrl": "https://laceup.online",
+      "technologies": ["React", "Node.js", "MongoDB"],
+      "features": ["E-Commerce", "Payment Gateway", "Inventory System"]
+    },
+    {
+      "id": 3,
+      "title": "Retail POS System",
+      "category": "pos",
+      "year": "2024",
+      "description": "Complete point-of-sale solution with inventory management and sales analytics.",
+      "technologies": ["React", "Node.js", "MongoDB"],
+      "features": ["Inventory Management", "Sales Reports", "Multi-payment"]
+    },
+    {
+      "id": 4,
+      "title": "Restaurant POS System",
+      "category": "pos",
+      "year": "2024",
+      "description": "Table management and order tracking system for hospitality businesses.",
+      "technologies": ["React", "Node.js"],
+      "features": ["Table Management", "Order Tracking", "Kitchen Display"]
+    },
+    {
+      "id": 5,
+      "title": "WhatsApp Chatbot Automation",
+      "category": "ai",
+      "year": "2025",
+      "description": "AI-powered WhatsApp chatbot for instant customer support and lead qualification.",
+      "technologies": ["n8n", "OpenAI", "WhatsApp API"],
+      "features": ["24/7 Support", "Lead Qualification", "Auto Responses"]
+    },
+    {
+      "id": 6,
+      "title": "Business Workflow Automation",
+      "category": "ai",
+      "year": "2025",
+      "description": "End-to-end business process automation reducing manual tasks by 60%.",
+      "technologies": ["n8n", "REST APIs"],
+      "features": ["Task Automation", "Data Sync", "60% Efficiency Boost"]
+    },
+    {
+      "id": 7,
+      "title": "AI Lead Generation System",
+      "category": "ai",
+      "year": "2024",
+      "description": "Automated lead capture and nurturing system with smart follow-ups.",
+      "technologies": ["n8n", "OpenAI", "CRM Integration"],
+      "features": ["Auto Capture", "Smart Follow-ups", "Lead Scoring"]
+    },
+    {
+      "id": 8,
+      "title": "n8n Multi-API Integration",
+      "category": "ai",
+      "year": "2024",
+      "description": "Complex workflow connecting multiple APIs for seamless data sync.",
+      "technologies": ["n8n", "REST APIs", "Webhooks"],
+      "features": ["Multi-API", "Real-time Sync", "Error Handling"]
+    }
+  ],
+
+  "experience": [
+    {
+      "id": 1,
+      "title": "AI Automation Specialist",
+      "company": "Edify Software House",
+      "location": "Faisalabad",
+      "period": "2026 - Present",
+      "description": "Building intelligent automation solutions including WhatsApp chatbots, business workflow automation, and AI-powered lead generation systems for diverse clients."
+    },
+    {
+      "id": 2,
+      "title": "POS Software Developer",
+      "company": "RetailTech Solutions",
+      "location": "Faisalabad",
+      "period": "2024 - 2025",
+      "description": "Designed and developed custom Point-of-Sale software for retail stores, restaurants, and pharmacies. Integrated inventory management, sales reporting, and multi-payment support."
+    },
+    {
+      "id": 3,
+      "title": "Web Developer",
+      "company": "Freelance / Remote",
+      "location": "Remote",
+      "period": "2023 - 2024",
+      "description": "Built responsive websites and full-stack web applications using React, Node.js, and MongoDB. Delivered e-commerce platforms, dashboards, and business websites for clients worldwide."
+    }
+  ],
+
+  "education": [
+    {
+      "id": 1,
+      "title": "ICS (Computer Science)",
+      "institution": "Intermediate in Computer Science",
+      "period": "2023 - 2025",
+      "description": "Pursuing ICS with focus on programming fundamentals, web technologies, and computer applications."
+    },
+    {
+      "id": 2,
+      "title": "Matriculation (Medical Science)",
+      "institution": "Secondary School Certificate",
+      "period": "2021 - 2023",
+      "description": "Completed matriculation in Medical Science stream with strong academic performance."
+    }
+  ],
+
+  "skills": {
+    "frontend": ["React", "JavaScript", "HTML5", "CSS3", "Flutter"],
+    "backend": ["Node.js", "Express.js", "Python"],
+    "database": ["MongoDB", "Firebase"],
+    "aiAutomation": ["n8n", "OpenAI", "WhatsApp Business API"],
+    "tools": ["Git", "GitHub", "VS Code", "Figma"],
+    "mobile": ["Flutter", "Dart"]
+  },
+
+  "stats": {
+    "projectsCompleted": "50+",
+    "clientsSatisfied": "30+",
+    "yearsExperience": "3+",
+    "githubStars": "100+"
+  },
+
+  "blog": [
+    {
+      "id": 1,
+      "title": "Maximizing Efficiency with n8n Workflow Automation",
+      "category": "Automation",
+      "date": "Jan 15, 2025",
+      "readTime": "5 min read",
+      "excerpt": "Discover how n8n workflow automation can transform your business operations, reduce manual tasks, and boost productivity by up to 60%."
+    },
+    {
+      "id": 2,
+      "title": "Building Scalable MERN Stack Applications",
+      "category": "Development",
+      "date": "Feb 08, 2025",
+      "readTime": "7 min read",
+      "excerpt": "A comprehensive guide to building production-ready applications with MongoDB, Express, React, and Node.js architecture."
+    },
+    {
+      "id": 3,
+      "title": "The Future of POS Systems in 2025",
+      "category": "Innovation",
+      "date": "Mar 22, 2025",
+      "readTime": "6 min read",
+      "excerpt": "Exploring emerging trends in point-of-sale technology including AI-powered analytics, cloud integration, and contactless payments."
+    }
+  ],
+
+  "faqs": [
+    {
+      "question": "What services does Ahmed offer?",
+      "answer": "Ahmed offers 6 core services: AI Automation, Full Stack Web Development, POS System Development, Flutter App Development, UI/UX Design, and E-Commerce Solutions."
+    },
+    {
+      "question": "Is Ahmed available for freelance work?",
+      "answer": "Yes! Ahmed is available for selective freelance projects while working at Edify Software House."
+    },
+    {
+      "question": "How can I contact Ahmed?",
+      "answer": "You can reach Ahmed via email at ahmedghouri818@gmail.com, phone at +92 313-7817044, or WhatsApp at +923137817044."
+    },
+    {
+      "question": "What is Ahmed's tech stack?",
+      "answer": "Ahmed specializes in React, Node.js, MongoDB, Flutter, n8n, and OpenAI for building modern web and mobile applications."
+    },
+    {
+      "question": "Does Ahmed build POS systems?",
+      "answer": "Yes! Ahmed has experience building custom POS systems for retail stores, restaurants, and pharmacies with inventory management and analytics."
+    }
+  ],
+
+  "contact": {
+    "email": "ahmedghouri818@gmail.com",
+    "phone": "+92 313-7817044",
+    "whatsapp": "+923137817044",
+    "location": "Faisalabad, Pakistan",
+    "availableHours": "9 AM - 8 PM (Pakistan Time)",
+    "responseTime": "Within 24 hours"
+  }
+}
