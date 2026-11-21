@@ -1,5 +1,143 @@
+/* ============================================
+   CHAT API — Gemini-powered Knowledge Assistant
+   Uses data/knowledge.json + Section 22 rules
+   ============================================ */
+
+const knowledge = require('../data/knowledge.json');
+
+const GEMINI_MODELS = [
+    process.env.GEMINI_MODEL || 'gemini-3.5-flash',
+    'gemini-3.5-flash-lite'
+];
+
+const GEMINI_TIMEOUT_MS = 30000;
+
+// ---------- Build system prompt (once, cached) ----------
+let cachedSystemText = null;
+function buildSystemPrompt() {
+    if (cachedSystemText) return cachedSystemText;
+
+    const kbSections = knowledge.sections
+        .map(s => `### ${s.id}. ${s.title}\n${s.content}`)
+        .join('\n\n');
+
+    cachedSystemText = [
+        knowledge.systemInstructions,
+        '',
+        '========== AUTHORIZED KNOWLEDGE BASE ==========',
+        '',
+        `Profile: ${knowledge.meta.name} — ${knowledge.meta.title}`,
+        `Location: ${knowledge.meta.location} | Email: ${knowledge.meta.email} | Phone/WhatsApp: ${knowledge.meta.phone}`,
+        '',
+        kbSections,
+        '',
+        '========== END OF KNOWLEDGE BASE ==========',
+        '',
+        'Always answer strictly from the knowledge base above. If something is not in the knowledge base, say it has not been provided. Never invent details.'
+    ].join('\n');
+
+    return cachedSystemText;
+}
+
+// ---------- Call Gemini with model fallback ----------
+async function callGemini(apiKey, contents) {
+    const systemText = buildSystemPrompt();
+    let lastError = null;
+
+    for (const model of GEMINI_MODELS) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+        const body = {
+            systemInstruction: { parts: [{ text: systemText }] },
+            contents: contents,
+            generationConfig: {
+                temperature: 0.6,
+                maxOutputTokens: 1024,
+                topP: 0.95
+            }
+        };
+
+        try {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+                signal: controller.signal
+            });
+            clearTimeout(timer);
+
+            if (!response.ok) {
+                const errText = await response.text();
+                console.error(`[CHAT] ${model} HTTP ${response.status}: ${errText.substring(0, 300)}`);
+                lastError = new Error(`${model} returned ${response.status}`);
+                continue;
+            }
+
+            const data = await response.json();
+            const candidate = data.candidates && data.candidates[0];
+
+            if (!candidate || !candidate.content || !candidate.content.parts) {
+                console.error(`[CHAT] ${model} empty candidate:`, JSON.stringify(data).substring(0, 300));
+                lastError = new Error(`${model} returned empty response`);
+                continue;
+            }
+
+            const text = candidate.content.parts
+                .map(p => p.text || '')
+                .join('')
+                .trim();
+
+            if (!text) {
+                lastError = new Error(`${model} returned empty text`);
+                continue;
+            }
+
+            console.log(`[CHAT] OK via ${model} (${text.length} chars)`);
+            return { reply: text, model };
+
+        } catch (err) {
+            console.error(`[CHAT] ${model} error:`, err.message);
+            lastError = err;
+        }
+    }
+
+    throw lastError || new Error('All Gemini models failed');
+}
+
+// ---------- Build conversation contents ----------
+function buildContents(message, history) {
+    const contents = [];
+
+    // Prior conversation (optional)
+    if (Array.isArray(history)) {
+        for (const turn of history.slice(-10)) {
+            if (!turn || !turn.role || !turn.content) continue;
+            if (turn.role !== 'user' && turn.role !== 'assistant') continue;
+            contents.push({
+                role: turn.role,
+                parts: [{ text: String(turn.content).substring(0, 2000) }]
+            });
+        }
+    }
+
+    // Current user message
+    contents.push({
+        role: 'user',
+        parts: [{ text: String(message).substring(0, 4000) }]
+    });
+
+    // Gemini requires last content to be 'user'
+    if (contents[contents.length - 1].role !== 'user') {
+        contents.push({ role: 'user', parts: [{ text: String(message).substring(0, 4000) }] });
+    }
+
+    return contents;
+}
+
+// ---------- Vercel serverless handler ----------
 module.exports = async (req, res) => {
-    // CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -12,95 +150,35 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
-    const { message, source } = req.body || {};
+    const { message, history } = req.body || {};
 
-    console.log(`\n[CHAT] New message: "${message}"`);
-
-    if (!message || message.trim() === '') {
+    if (!message || !String(message).trim()) {
         return res.status(400).json({ error: 'Message is required' });
     }
 
-    if (!N8N_WEBHOOK_URL) {
-        console.log('[CHAT] n8n webhook not configured');
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+        console.error('[CHAT] GEMINI_API_KEY not set');
         return res.status(503).json({
             error: 'AI service not configured',
             fallback: true
         });
     }
 
+    console.log(`[CHAT] "${String(message).substring(0, 120)}"`);
+
     try {
-        console.log(`[CHAT] Forwarding to n8n: ${N8N_WEBHOOK_URL}`);
-
-        const response = await fetch(N8N_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                message: message,
-                timestamp: new Date().toISOString(),
-                source: source || 'portfolio_chatbot'
-            })
-        });
-
-        console.log(`[CHAT] n8n response status: ${response.status}`);
-
-        if (!response.ok) {
-            throw new Error(`n8n webhook failed with status ${response.status}`);
-        }
-
-        const rawText = await response.text();
-        console.log(`[CHAT] Raw response: ${rawText.substring(0, 200)}`);
-
-        let data;
-        try {
-            data = JSON.parse(rawText);
-        } catch (e) {
-            return res.status(200).json({
-                reply: rawText || 'Empty response from AI',
-                source: 'n8n'
-            });
-        }
-
-        if (data.myField === 'value' || (Object.keys(data).length === 1 && data.myField)) {
-            console.log('[CHAT] Placeholder response detected');
-            return res.status(200).json({
-                reply: null,
-                fallback: true,
-                message: 'AI workflow not configured properly'
-            });
-        }
-
-        const responseKeys = ['reply', 'message', 'response', 'output', 'text', 'answer', 'content'];
-
-        for (let key of responseKeys) {
-            if (data[key] && typeof data[key] === 'string') {
-                console.log(`[CHAT] Found response in key: ${key}`);
-                return res.status(200).json({ reply: data[key], source: 'n8n' });
-            }
-        }
-
-        if (data.data) {
-            for (let key of responseKeys) {
-                if (data.data[key] && typeof data.data[key] === 'string') {
-                    return res.status(200).json({ reply: data.data[key], source: 'n8n' });
-                }
-            }
-        }
-
-        const keys = Object.keys(data);
-        for (let key of keys) {
-            if (typeof data[key] === 'string' && data[key].length > 2) {
-                return res.status(200).json({ reply: data[key], source: 'n8n' });
-            }
-        }
+        const contents = buildContents(message, history);
+        const result = await callGemini(apiKey, contents);
 
         return res.status(200).json({
-            reply: JSON.stringify(data, null, 2),
-            source: 'n8n_raw'
+            reply: result.reply,
+            source: 'gemini',
+            model: result.model
         });
 
     } catch (error) {
-        console.error('[CHAT] Error:', error.message);
+        console.error('[CHAT] Fatal:', error.message);
         return res.status(500).json({
             error: 'Failed to get AI response',
             message: error.message,

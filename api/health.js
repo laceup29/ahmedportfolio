@@ -5,6 +5,10 @@ module.exports = (req, res) => {
         status: 'ok',
         timestamp: new Date().toISOString(),
         environment: process.env.NODE_ENV || 'development',
-        webhook: process.env.N8N_WEBHOOK_URL ? 'configured' : 'not configured'
+        ai: {
+            provider: 'gemini',
+            configured: !!process.env.GEMINI_API_KEY,
+            model: process.env.GEMINI_MODEL || 'gemini-3.5-flash'
+        }
     });
 };

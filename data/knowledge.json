@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "name": "Muhammad Ahmed",
+    "title": "AI Automation Expert | Full Stack JavaScript Developer | POS & ERP Software Specialist",
+    "location": "Faisalabad, Pakistan",
+    "email": "ahmedghouri818@gmail.com",
+    "phone": "03137817044",
+    "source": "Muhammad_Ahmed Knowledge.pdf",
+    "version": "1.0"
+  },
+  "systemInstructions": "22. AI Chatbot System Instructions\nChatbot Identity\nYou are an AI assistant representing Muhammad Ahmed. Your purpose is to provide accurate information about his\npersonal professional profile, technical skills, experience, education, projects, services, and career interests. You are not\nMuhammad Ahmed himself. Never pretend to be him or claim to have personally performed actions on his behalf.\nLanguage Rules\n   If the user asks in English, answer in professional English.\n   If the user asks in Roman Urdu, answer in natural Pakistani Roman Urdu.\n   If the user asks in Urdu, respond in Urdu.\n   Avoid unnecessary technical jargon when explaining concepts to beginners.\n   Explain technical subjects in simple language when requested.\n \nResponse Style\n   Maintain a professional and helpful tone.\n   Give direct answers and use headings for detailed responses.\n   Use bullet points when listing skills or services.\n   Keep simple answers concise and explain technical topics with relevant examples.\n \n\n  Avoid unnecessary repetition and exaggerated marketing language.\n   Do not make unsupported claims.\n \nKnowledge Retrieval Rules\n   For skills questions, use the technical expertise and technologies sections.\n   For AI automation questions, use the AI Automation section.\n   For POS questions, use the POS Software Development section.\n   For programming technology questions, use the Web Development and Tools sections.\n   For education questions, use the Education section.\n   For project questions, use the Projects section and distinguish concepts from completed implementations.\n   For contact questions, provide the personal contact details in Section 21.\n \nAccuracy and Honesty Requirements\n   Never invent qualifications, degrees, certifications, or academic achievements.\n   Never invent employment dates or total years of professional experience.\n   Never claim proficiency beyond what is supported by this knowledge base.\n   Never claim a project is completed, deployed, or commercially available without confirmation.\n   Never invent client names, testimonials, awards, or professional achievements.\n   If information is unavailable, clearly state that it has not been provided.\n   Distinguish practical experience, technical interests, and project concepts.\n   Do not guarantee project delivery, pricing, or results.\n   Use the correct personal contact details.\n   Do not disclose information outside the authorized knowledge base.\n \nProfessional Introduction Example\n“Muhammad Ahmed is an AI Automation Expert and Full Stack JavaScript Developer specializing in business\nautomation, AI-powered applications, POS software, and ERP systems. His technical expertise also includes MERN\nStack development, WhatsApp automation, API integrations, e-commerce development, Flutter application development,\nand 3D architectural visualization. He focuses on building practical digital solutions that help businesses improve\nefficiency and streamline their operations.”\nContact Response Example\n“You can contact Muhammad Ahmed directly using the following information:\nEmail: ahmedghouri818@gmail.com\nPhone / WhatsApp: 03137817044\nLocation: Faisalabad, Pakistan.”\nFinal Chatbot Objective\nAccurately represent Muhammad Ahmed's personal and professional profile. Help users understand who he is, what\ntechnical skills he possesses, which technologies he works with, what software solutions he can develop, what projects\nhe has explored or worked on, his educational background, his professional interests and career goals, and how to\ncontact him. Always prioritize accuracy, professionalism, clarity, and helpfulness. Do not invent information to fill missing\ndetails.",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Professional Profile",
+      "content": "1. Professional Profile\nFull Name: Muhammad Ahmed\nProfessional Title: AI Automation Expert | Full Stack JavaScript Developer | POS & ERP Software Specialist\nLocation: Faisalabad, Pakistan\nPersonal Email: ahmedghouri818@gmail.com\nPersonal Phone / WhatsApp: 03137817044\nMuhammad Ahmed is a technology professional specializing in Full Stack Web Development, AI Automation, Business\nProcess Automation, POS Software Development, and ERP Systems. He focuses on developing modern digital solutions\nthat help businesses improve operational efficiency, automate repetitive processes, enhance customer experiences, and\nmanage daily operations through technology.\nHis technical interests include web applications, AI-powered chatbots, intelligent automation workflows, business\nmanagement systems, e-commerce platforms, and mobile applications. His approach emphasizes practical\nproblem-solving, user-friendly interfaces, efficient workflows, and solutions designed around business requirements.\nProfessional Mission\nTo help businesses and individuals solve real-world problems through modern software development, intelligent\nautomation, and innovative technology solutions.\nProfessional Vision\nTo develop strong capabilities in AI Automation, Software Engineering, and Business Solutions Development while\nbuilding useful digital products and serving international clients."
+    },
+    {
+      "id": 2,
+      "title": "Core Technical Expertise",
+      "content": "2. Core Technical Expertise\n   Artificial Intelligence and Business Automation\n   Full Stack Web Development\n   POS Software Development\n   ERP Software Development\n   Business Process Automation\n   WhatsApp Chatbot Development\n   AI Agent Development\n   API Integration\n   E-commerce Development\n   Mobile Application Development\n   Database Management\n   3D Architectural Visualization"
+    },
+    {
+      "id": 3,
+      "title": "Full Stack Web Development",
+      "content": "3. Full Stack Web Development\nMuhammad Ahmed works with modern web development technologies to build responsive, dynamic, and\ndatabase-driven web applications.\nFrontend Development\nTechnologies: HTML5, CSS3, JavaScript, React.js\n   Responsive website development and interactive user interfaces\n   Modern website layouts, dynamic components, and dashboard interfaces\n   Form handling, validation, and API integration\n \n\n  User authentication interfaces and e-commerce frontend development\n   Mobile-friendly web design\n \nBackend Development\nTechnologies: Node.js, Express.js, JavaScript, REST APIs\n   Server-side application and REST API development\n   User authentication, authorization, and role management\n   Business logic implementation and database connectivity\n   Data processing, backend integrations, and application architecture\n \nDatabase Management\nTechnology: MongoDB\n   Database design, data storage and retrieval, and CRUD operations\n   User, product, transaction, and business data management\n   Database integration with web applications\n \nMERN Stack Development\nThe MERN Stack combines MongoDB (database), Express.js (backend framework), React.js (frontend library), and\nNode.js (JavaScript runtime). It can be used to build business management applications, e-commerce websites, admin\ndashboards, customer portals, inventory systems, and custom web applications."
+    },
+    {
+      "id": 4,
+      "title": "AI Automation & Artificial Intelligence",
+      "content": "4. AI Automation & Artificial Intelligence\nAI Automation is one of Muhammad Ahmed's primary professional specializations. He focuses on using artificial\nintelligence, APIs, and workflow automation platforms to reduce manual work and improve business operations.\nTools and technologies: n8n, Make.com, Zapier, OpenAI API, AI Agents, Large Language Models (LLMs), REST APIs,\nWebhooks, and WhatsApp API integrations.\nAI Chatbot Development\n   Website customer support and frequently asked questions\n   Business inquiry handling and product information assistance\n   Appointment inquiries, lead collection, and automated customer communication\n \nWhatsApp Automation\n   Automatic message responses and AI-powered conversations\n   Customer inquiry management, lead collection, and follow-ups\n   Automated notifications, media processing, and external application integrations\n \nAI Voice Agents\n   Automated voice conversations and customer inquiry handling\n   Restaurant call automation and appointment-related conversations\n   Voice-based information collection and API/database integrations\n \nAI Business Process Automation\n   Processing customer inquiries and organizing incoming leads\n   Automated emails, spreadsheet updates, and notifications\n   Form processing, customer follow-ups, and application connectivity\n \n\nAI-Powered RAG Systems\nMuhammad Ahmed works with Retrieval-Augmented Generation (RAG) concepts to create AI assistants that answer\nquestions using supplied documents and knowledge sources. Potential applications include educational information\nassistants, business knowledge assistants, document-based question answering, and customer support knowledge\nbases.\nAI Social Media Automation\n   Automated comment and message response workflows\n   Facebook Messenger and Instagram message automation concepts\n   Customer inquiry processing, lead collection, and notifications"
+    },
+    {
+      "id": 5,
+      "title": "POS Software Development",
+      "content": "5. POS Software Development\nPOS (Point of Sale) software development is a major area of Muhammad Ahmed's technical specialization. He focuses\non software solutions for restaurants, retail stores, and other businesses that need organized sales and inventory\nmanagement.\nRestaurant POS Systems\n   Restaurant dashboard, food menu, category, and product management\n   Order creation, table management, and kitchen order management\n   Billing, invoicing, and receipt generation\n   Customer management, daily sales records, and inventory management\n   Sales reporting\n \nRetail POS Systems\n   Product management and barcode-based product handling\n   Inventory tracking, stock management, and sales processing\n   Billing, customer records, and supplier management\n   Purchase records, sales analytics, and daily/monthly reports\n \nPOS Development Objectives\n   Simplify sales operations and improve inventory tracking\n   Reduce manual recordkeeping and organize business transactions\n   Improve reporting and provide centralized business management"
+    },
+    {
+      "id": 6,
+      "title": "ERP Software Development",
+      "content": "6. ERP Software Development\nMuhammad Ahmed also specializes in custom ERP and business management software concepts. ERP (Enterprise\nResource Planning) systems help organizations manage different operational activities through centralized software.\n   Inventory and stock management\n   Sales and purchase management\n   Customer, supplier, and employee management\n   Financial and transaction records\n   Business reporting and user access management\n   Administrative dashboards and database management\n Custom ERP systems can be designed around the requirements of manufacturing, retail, distribution, trading,\neducational, service-based, and small-to-medium-sized businesses. The objective is to make business information and\n\noperations more organized and manageable."
+    },
+    {
+      "id": 7,
+      "title": "Mobile Application Development",
+      "content": "7. Mobile Application Development\nMuhammad Ahmed has experience and technical interests in Flutter-based mobile application development.\nTechnology: Flutter, Dart, API Integration, and Mobile UI Development.\n   Customer and service provider applications\n   Booking and business management applications\n   E-commerce applications and custom Android application concepts\n   User registration/login, customer profiles, and API connectivity\n   Service requests, dashboards, and user-friendly navigation"
+    },
+    {
+      "id": 8,
+      "title": "E-commerce Development",
+      "content": "8. E-commerce Development\nMuhammad Ahmed works with e-commerce technologies and online business application development.\nPlatforms and technologies: Shopify, WordPress, React.js, Node.js, Express.js, and MongoDB.\n   E-commerce website development and Shopify store customization\n   Product listing and management\n   Shopping cart and checkout functionality\n   Payment gateway integration and customer account systems\n   Order management, inventory integration, and responsive store design\n   Admin dashboard development"
+    },
+    {
+      "id": 9,
+      "title": "API Integration & System Connectivity",
+      "content": "9. API Integration & System Connectivity\nMuhammad Ahmed works with API-based integrations to connect different applications and services.\nRelated technologies: REST APIs, Webhooks, JSON, HTTP Requests, OpenAI API, WhatsApp API integrations, and\nthird-party application integrations.\n   Connecting frontend and backend applications\n   Connecting databases with applications\n   Integrating AI models and automation workflows\n   Processing incoming API requests and sending/receiving data\n   Automating communication between systems"
+    },
+    {
+      "id": 10,
+      "title": "3D Architectural Visualization",
+      "content": "10. 3D Architectural Visualization\nMuhammad Ahmed has a background in architectural visualization and has worked in the field of 3D architectural\nvisualization.\n   3D architectural rendering\n   Interior and exterior visualization\n   Architectural presentation\n   3D visual communication\n   Architectural design visualization\n He has worked with JM Architects in an architectural visualization-related role. His background in visualization adds a\ncreative and technical dimension to his professional profile."
+    },
+    {
+      "id": 11,
+      "title": "UI/UX Design & Graphic Design",
+      "content": "11. UI/UX Design & Graphic Design\n   UI/UX design and website interface design\n   Dashboard and mobile application interface concepts\n   Responsive layout design\n   Graphic design and branding/visual identity\n   Digital marketing creative materials\n   AI-assisted content creation\n His design focus is on clear, organized, modern, and user-friendly digital interfaces."
+    },
+    {
+      "id": 12,
+      "title": "Development Tools & Technologies",
+      "content": "12. Development Tools & Technologies\nProgramming and Web Technologies\n   HTML, CSS, JavaScript, React.js, Node.js, Express.js, MongoDB\n \nAI and Automation\n   n8n, Make.com, Zapier, OpenAI API, AI Agents, RAG concepts, Webhooks\n \nE-commerce and CMS\n   Shopify, WordPress\n \nMobile Development\n   Flutter, Dart\n \nData and Integration\n   JSON, REST APIs, HTTP Requests, Google Sheets integrations\n These technologies represent listed skills, development experience, and areas of technical work. The chatbot must not assume identical\nproficiency in every technology."
+    },
+    {
+      "id": 13,
+      "title": "Projects & Practical Development Work",
+      "content": "13. Projects & Practical Development Work\nMuhammad Ahmed has explored and worked on different software, automation, and digital product development\nprojects.\nProject 1: LaceUp – Shoe E-commerce Platform\nA shoe e-commerce website project using React.js, Node.js, Express.js, and MongoDB.\n   Product listings and shopping functionality\n   Backend integration and admin panel\n   User authentication and Google login integration\n   Database connectivity\n \nProject 2: WhatsApp AI Automation\n   Incoming WhatsApp messages and automated responses\n   AI-based message handling and workflow automation\n   Media processing and external API integration\n \nProject 3: Educational AI Assistant\n   Answering student questions and providing admission information\n \n\n  Responding to fee-related inquiries\n   Retrieving information from institutional documents\n   AI-based knowledge retrieval\n \nProject 4: Restaurant POS and Automation\n   Order and menu management\n   Restaurant POS concepts and customer communication\n   AI voice agent integration concepts\n   Automated workflows and sales/order records\n \nProject 5: Business Inventory and Ledger System\n   Stock and inventory records\n   Ledger management and admin/user login\n   Sales and purchase records\n   Database management\n \nProject 6: Home Services Mobile Application\n   Customer and service provider registration\n   Service requests and location-based service discovery\n   Customer-provider communication and booking management\n   User verification concepts\n Project accuracy note: These descriptions include development work, concepts, and explored implementations. Do not claim that\nevery project is commercially launched, fully completed, or currently operational."
+    },
+    {
+      "id": 14,
+      "title": "Professional Services",
+      "content": "14. Professional Services\nSoftware Development\n   Full Stack Web Development\n   Custom Website Development\n   MERN Stack Applications\n   Backend and Frontend Development\n   REST API Development\n   Database Integration\n \nAI and Automation\n   AI Chatbot Development\n   WhatsApp Automation\n   AI Agent Development\n   AI Voice Agent Concepts\n   n8n, Make.com, and Zapier Automation\n   Business Process Automation\n   OpenAI API Integration\n   RAG-Based AI Assistants\n \n\nBusiness Software\n   Restaurant POS Development\n   Retail POS Development\n   ERP Software Development\n   Inventory Management Systems\n   Sales Management Systems\n   Custom Business Applications\n \nE-commerce and Mobile\n   Shopify Development\n   WordPress Development\n   E-commerce Development\n   Flutter Application Development\n   Mobile Application Interfaces\n \nCreative and Visualization\n   3D Architectural Visualization\n   Architectural Rendering\n   UI/UX Design\n   Graphic Design"
+    },
+    {
+      "id": 15,
+      "title": "Education & Academic Background",
+      "content": "15. Education & Academic Background\nEducational Institution: Superior University\nAcademic Field: Visualization Architecture\nMuhammad Ahmed has an educational background in Visualization Architecture from Superior University. This academic\nbackground relates to architectural visualization and provides a foundation for his work and interests in 3D visualization.\nHis additional technical interests and professional development cover software engineering, programming, web\ndevelopment, and artificial intelligence.\nDo not invent his exact degree title, graduation year, marks, CGPA, certifications, or additional qualifications unless separately\nconfirmed."
+    },
+    {
+      "id": 16,
+      "title": "Professional Experience",
+      "content": "16. Professional Experience\nSoftware Development\n   Full Stack Web Development\n   Database-driven applications\n   Backend and frontend development\n   E-commerce systems\n   Business management software\n   API integrations\n \nAI and Automation\n   AI chatbot workflows\n   WhatsApp integrations\n \n\n  n8n automation\n   AI-powered information retrieval\n   Business automation concepts\n   AI-based communication systems\n \nArchitectural Visualization\nHe has worked with JM Architects in an architectural visualization-related role. His background combines creative\nvisualization work with an interest in modern software technologies.\nExact employment dates, total years of experience, job titles, and client history have not been confirmed. Never invent these details."
+    },
+    {
+      "id": 17,
+      "title": "Target Industries & Potential Clients",
+      "content": "17. Target Industries & Potential Clients\n   Restaurants and food businesses: websites, POS, menu/order management, voice assistants, and WhatsApp\n automation\n  Retail businesses: POS, inventory, stock tracking, and sales reporting\n   E-commerce businesses: online stores, Shopify customization, product management, and order automation\n   Educational institutions: AI assistants, student inquiry automation, and information retrieval\n   Real estate businesses: websites, lead generation, chatbots, and workflow automation\n   Service-based businesses: appointment workflows, booking applications, and customer support automation\n   Startups and small businesses: custom web applications, business software, and AI automation"
+    },
+    {
+      "id": 18,
+      "title": "Business Problems He Can Help Solve",
+      "content": "18. Business Problems He Can Help Solve\n   Manual customer communication and repetitive administrative tasks\n   Slow responses to customer inquiries\n   Unorganized inventory records and manual sales tracking\n   Inefficient order processing\n   Disconnected software applications\n   Lack of centralized business information\n   Time-consuming data entry and manual lead management\n   Poor customer follow-up processes\n   Lack of customized business software\n The appropriate solution depends on each client's requirements, budget, existing systems, and technical environment."
+    },
+    {
+      "id": 19,
+      "title": "Career Goals & Professional Interests",
+      "content": "19. Career Goals & Professional Interests\n   Developing advanced capabilities in AI Automation\n   Building intelligent AI agents and practical AI-powered applications\n   Creating scalable web applications\n   Developing professional POS and ERP solutions\n   Improving software engineering skills\n   Building useful digital products\n   Working with international clients\n   Expanding a freelance career\n \n\n  Serving markets including the USA, UK, UAE, and other international locations\n   Learning emerging AI technologies\n He is also interested in professional opportunities through Fiverr, Upwork, and LinkedIn."
+    },
+    {
+      "id": 20,
+      "title": "Professional Working Approach",
+      "content": "20. Professional Working Approach\n   Understand client requirements before development\n   Identify the actual business problem\n   Select appropriate technologies\n   Develop user-friendly interfaces\n   Build organized and maintainable applications\n   Integrate systems where required\n   Test functionality and improve solutions based on feedback\n   Maintain clear and professional communication\n His focus is on delivering useful, functional solutions aligned with client objectives."
+    },
+    {
+      "id": 21,
+      "title": "Personal Contact Information",
+      "content": "21. Personal Contact Information\n Muhammad Ahmed\n Personal Email: ahmedghouri818@gmail.com\n Phone / WhatsApp: 03137817044\n Location: Faisalabad, Pakistan\nThese are personal contact details. Do not replace them with unrelated contact information."
+    }
+  ]
+}

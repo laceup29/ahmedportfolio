@@ -8,7 +8,7 @@ const Chatbot = (() => {
     const API_BASE_URL = ''; // empty = same origin
     const CHAT_API = `${API_BASE_URL}/api/chat`;
     const PORTFOLIO_DATA_URL = 'data/portfolio-data.json';
-    const DEBUG = true;
+    const DEBUG = false;
 
     const GREETING_MESSAGE = "Hello! Welcome to Muhammad Ahmed's portfolio.\n\nI'm here to help you with information about services, projects, and how to get in touch.\n\nHow can I assist you today?";
 
@@ -20,6 +20,7 @@ const Chatbot = (() => {
     let isOpen = false;
     let isTyping = false;
     let portfolioData = null;
+    let conversationHistory = [];
 
     // ========== SVG ICONS ==========
     const ICONS = {
@@ -129,10 +130,14 @@ const Chatbot = (() => {
 
     function addBotMessage(text) {
         addMessage(text, 'bot');
+        conversationHistory.push({ role: 'assistant', content: text });
+        if (conversationHistory.length > 20) conversationHistory = conversationHistory.slice(-20);
     }
 
     function addUserMessage(text) {
         addMessage(text, 'user');
+        conversationHistory.push({ role: 'user', content: text });
+        if (conversationHistory.length > 20) conversationHistory = conversationHistory.slice(-20);
     }
 
     // ========== TYPING INDICATOR ==========
@@ -169,7 +174,7 @@ const Chatbot = (() => {
         showTyping();
 
         try {
-            const response = await callBackendAPI(text);
+            const response = await callBackendAPI(text, conversationHistory.slice(0, -1));
             hideTyping();
             addBotMessage(response);
         } catch (error) {
@@ -180,7 +185,7 @@ const Chatbot = (() => {
     }
 
     // ========== CALL BACKEND API ==========
-    async function callBackendAPI(message) {
+    async function callBackendAPI(message, history) {
         if (DEBUG) console.log('Calling backend API:', message);
 
         try {
@@ -189,6 +194,7 @@ const Chatbot = (() => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     message: message,
+                    history: history || [],
                     source: 'portfolio_chatbot'
                 })
             });
