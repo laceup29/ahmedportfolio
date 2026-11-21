@@ -5,7 +5,7 @@
 
 const Chatbot = (() => {
     // ========== CONFIGURATION ==========
-    const API_BASE_URL = 'https://my-portfolio-full-ay64.onrender.com';
+    const API_BASE_URL = ''; // empty = same origin
     const CHAT_API = `${API_BASE_URL}/api/chat`;
     const PORTFOLIO_DATA_URL = 'data/portfolio-data.json';
     const DEBUG = true;

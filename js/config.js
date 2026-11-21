@@ -4,8 +4,8 @@
    ============================================ */
 
 const CONFIG = {
-    // Backend API URL (Render)
-    BACKEND_URL: 'https://my-portfolio-full-ay64.onrender.com',
+    // Backend API URL (empty = same origin, works on Vercel/Render)
+    BACKEND_URL: '',
     
     // n8n Webhook URL - Production
     N8N_WEBHOOK_URL: 'https://n8n.srv1146250.hstgr.cloud/webhook/my_portfolio',
@@ -13,8 +13,8 @@ const CONFIG = {
     // Portfolio Data URL
     PORTFOLIO_DATA_URL: 'data/portfolio-data.json',
     
-    // Website URL (Render Full Stack)
-    WEBSITE_URL: 'https://my-portfolio-full-ay64.onrender.com',
+    // Website URL
+    WEBSITE_URL: '',
     
     // Debug Mode - Set to true to see console logs
     DEBUG: true,

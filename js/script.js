@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONTACT FORM HANDLING
     // ============================================
     const contactForm = document.getElementById('contactForm');
-    const CONTACT_API = (typeof CONFIG !== 'undefined' ? CONFIG.BACKEND_URL : 'https://my-portfolio-full-ay64.onrender.com') + '/api/contact';
+    const CONTACT_API = (typeof CONFIG !== 'undefined' ? CONFIG.BACKEND_URL : '') + '/api/contact';
 
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
