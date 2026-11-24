@@ -39,12 +39,26 @@ function buildSystemPrompt() {
     return cachedSystemText;
 }
 
-// ---------- Call Gemini with model fallback ----------
+// ---------- Call Gemini with model fallback + retry ----------
+const TOTAL_BUDGET_MS = 16000; // keep under frontend's 18s abort
+
 async function callGemini(apiKey, contents) {
     const systemText = buildSystemPrompt();
     let lastError = null;
+    const attemptErrors = [];
 
-    for (const model of GEMINI_MODELS) {
+    // Each model gets one quick retry (handles transient network/API failures)
+    const attempts = [];
+    for (const model of GEMINI_MODELS) attempts.push(model, model);
+
+    const startTime = Date.now();
+
+    for (const model of attempts) {
+        if (Date.now() - startTime >= TOTAL_BUDGET_MS) {
+            attemptErrors.push('total time budget exceeded');
+            break;
+        }
+
         const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
         const body = {
             systemInstruction: { parts: [{ text: systemText }] },
@@ -58,7 +72,8 @@ async function callGemini(apiKey, contents) {
 
         try {
             const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
+            const remaining = TOTAL_BUDGET_MS - (Date.now() - startTime);
+            const timer = setTimeout(() => controller.abort(), Math.min(GEMINI_TIMEOUT_MS, remaining));
 
             const response = await fetch(url, {
                 method: 'POST',
@@ -71,6 +86,7 @@ async function callGemini(apiKey, contents) {
             if (!response.ok) {
                 const errText = await response.text();
                 console.error(`[CHAT] ${model} HTTP ${response.status}: ${errText.substring(0, 300)}`);
+                attemptErrors.push(`${model} HTTP ${response.status}`);
                 lastError = new Error(`${model} returned ${response.status}`);
                 continue;
             }
@@ -80,6 +96,7 @@ async function callGemini(apiKey, contents) {
 
             if (!candidate || !candidate.content || !candidate.content.parts) {
                 console.error(`[CHAT] ${model} empty candidate:`, JSON.stringify(data).substring(0, 300));
+                attemptErrors.push(`${model} empty response`);
                 lastError = new Error(`${model} returned empty response`);
                 continue;
             }
@@ -90,20 +107,25 @@ async function callGemini(apiKey, contents) {
                 .trim();
 
             if (!text) {
+                attemptErrors.push(`${model} empty text`);
                 lastError = new Error(`${model} returned empty text`);
                 continue;
             }
 
-            console.log(`[CHAT] OK via ${model} (${text.length} chars)`);
-            return { reply: text, model };
+            const elapsed = Date.now() - startTime;
+            console.log(`[CHAT] OK via ${model} (${text.length} chars, ${elapsed}ms)${attemptErrors.length ? ` after failed attempts: ${attemptErrors.join(' | ')}` : ''}`);
+            return { reply: text, model, attemptErrors };
 
         } catch (err) {
             console.error(`[CHAT] ${model} error:`, err.message);
+            attemptErrors.push(`${model}: ${err.message}`);
             lastError = err;
         }
     }
 
-    throw lastError || new Error('All Gemini models failed');
+    const finalError = lastError || new Error('All Gemini models failed');
+    finalError.attemptErrors = attemptErrors;
+    throw finalError;
 }
 
 // ---------- Build conversation contents ----------
@@ -171,18 +193,26 @@ module.exports = async (req, res) => {
         const contents = buildContents(message, history);
         const result = await callGemini(apiKey, contents);
 
-        return res.status(200).json({
+        const payload = {
             reply: result.reply,
             source: 'gemini',
             model: result.model
-        });
+        };
+        if (req.body.debug && result.attemptErrors.length) {
+            payload.attemptErrors = result.attemptErrors;
+        }
+        return res.status(200).json(payload);
 
     } catch (error) {
         console.error('[CHAT] Fatal:', error.message);
-        return res.status(500).json({
+        const payload = {
             error: 'Failed to get AI response',
             message: error.message,
             fallback: true
-        });
+        };
+        if (req.body.debug && error.attemptErrors) {
+            payload.attemptErrors = error.attemptErrors;
+        }
+        return res.status(500).json(payload);
     }
 };
