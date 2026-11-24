@@ -4,7 +4,7 @@
 
 const CONFIG = {
     // Backend API URL (Render deployment)
-    BACKEND_URL: 'https://YOUR-SERVICE.onrender.com',
+    BACKEND_URL: 'https://ahmedportfolio-vvy5.onrender.com',
 
     // Website URL
     WEBSITE_URL: '',
