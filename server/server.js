@@ -13,13 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ========== MIDDLEWARE ==========
+// origin: true reflects any origin (Vercel frontend + local dev)
 const corsOptions = {
-    origin: [
-        'https://ahmedportfolio.site',
-        'https://www.ahmedportfolio.site',
-        'http://localhost:3000',
-        'http://localhost:5173'
-    ],
+    origin: true,
     credentials: true
 };
 app.use(cors(corsOptions));

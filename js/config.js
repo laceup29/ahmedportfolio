@@ -3,8 +3,8 @@
    ============================================ */
 
 const CONFIG = {
-    // Backend API URL (empty = same origin, works on Vercel)
-    BACKEND_URL: '',
+    // Backend API URL (Render deployment)
+    BACKEND_URL: 'https://YOUR-SERVICE.onrender.com',
 
     // Website URL
     WEBSITE_URL: '',

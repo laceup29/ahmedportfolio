@@ -6,11 +6,11 @@
 const knowledge = require('../data/knowledge.json');
 
 const GEMINI_MODELS = [
-    process.env.GEMINI_MODEL || 'gemini-3.5-flash',
-    'gemini-3.5-flash-lite'
+    process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite',
+    'gemini-3.5-flash'
 ];
 
-const GEMINI_TIMEOUT_MS = 30000;
+const GEMINI_TIMEOUT_MS = 15000;
 
 // ---------- Build system prompt (once, cached) ----------
 let cachedSystemText = null;
@@ -51,7 +51,7 @@ async function callGemini(apiKey, contents) {
             contents: contents,
             generationConfig: {
                 temperature: 0.6,
-                maxOutputTokens: 1024,
+                maxOutputTokens: 768,
                 topP: 0.95
             }
         };

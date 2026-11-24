@@ -5,7 +5,7 @@
 
 const Chatbot = (() => {
     // ========== CONFIGURATION ==========
-    const API_BASE_URL = ''; // empty = same origin
+    const API_BASE_URL = (typeof CONFIG !== 'undefined' ? CONFIG.BACKEND_URL : ''); // Render backend
     const CHAT_API = `${API_BASE_URL}/api/chat`;
     const PORTFOLIO_DATA_URL = 'data/portfolio-data.json';
     const DEBUG = false;
@@ -143,6 +143,7 @@ const Chatbot = (() => {
     // ========== TYPING INDICATOR ==========
     function showTyping() {
         isTyping = true;
+        messagesContainer.appendChild(typingIndicator);
         typingIndicator.classList.add('show');
         scrollToBottom();
         sendBtn.disabled = true;
@@ -189,6 +190,9 @@ const Chatbot = (() => {
         if (DEBUG) console.log('Calling backend API:', message);
 
         try {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 18000);
+
             const response = await fetch(CHAT_API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -196,8 +200,10 @@ const Chatbot = (() => {
                     message: message,
                     history: history || [],
                     source: 'portfolio_chatbot'
-                })
+                }),
+                signal: controller.signal
             });
+            clearTimeout(timer);
 
             if (DEBUG) console.log('Backend response status:', response.status);
 
